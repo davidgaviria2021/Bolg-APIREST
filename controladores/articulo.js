@@ -174,10 +174,10 @@ const uno = async (req, res) => {
     let id = req.params.id;
 
     // Buscar el articulo
-    let articulos = await Articulo.findById(id);
+    let articulo = await Articulo.findById(id);
 
     // Si no existe devolver error
-    if (!articulos) {
+    if (!articulo) {
       return res.status(404).json({
         status: "error",
         mensaje: "No se ha encontrado el artículo",
@@ -187,7 +187,7 @@ const uno = async (req, res) => {
     // Devolver resultado
     return res.status(200).json({
       status: "success",
-      articulos,
+      articulo,
     });
   } catch (error) {
     console.log(error);
